@@ -61,8 +61,12 @@ class FirstPage extends StatelessWidget {
 
 class HomePage extends StatelessWidget {
   HomePage();
-  final _number = 1;
+  int session = 1;
   final textColor = Color.fromARGB(255, 184, 181, 181);
+
+  callBack(int session) {
+    this.session = session;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,16 +78,6 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: EdgeInsets.fromLTRB(0, 60, 12, 12),
             child: TitleBar(),
-          ),
-          Padding(
-            padding: EdgeInsets.all(40),
-            child: Text(
-              'Session $_number of 4',
-              style: TextStyle(
-                color: textColor,
-                fontSize: 20,
-              ),
-            ),
           ),
           TimerDisplay(),
         ],
