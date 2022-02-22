@@ -2,6 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'timer.dart';
+import 'package:flutter/widgets.dart';
+
+class SizeConfig {
+  static late MediaQueryData _mediaQueryData;
+  static late double screenWidth;
+  static late double screenHeight;
+  static late double blockSizeHorizontal;
+  static late double blockSizeVertical;
+
+  void init(BuildContext context) {
+    _mediaQueryData = MediaQuery.of(context);
+    screenWidth = _mediaQueryData.size.width;
+    screenHeight = _mediaQueryData.size.height;
+    blockSizeHorizontal = screenWidth / 100;
+    blockSizeVertical = screenHeight / 100;
+  }
+}
 
 void main() {
   runApp(const MyApp());
@@ -31,6 +48,7 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    SizeConfig().init(context);
     return Scaffold(
       backgroundColor: Color.fromARGB(221, 27, 27, 27),
       body: Center(
